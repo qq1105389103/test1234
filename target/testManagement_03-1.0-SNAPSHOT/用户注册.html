@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body style="background: url('http://localhost:8080/testManagement/IMG_0085.JPG');background-size: 100% " >
+   <form action="http://localhost:8080/testManagement/User/add" method="post" id="form1">
+       <table border="2px" align="center">
+           <tr>
+               <td> username</td><td colspan="2"><input type="text" name="username" id="username"/></td>
+               <td><div id="divname" class="userdiv"></div></td>
+           </tr>
+           <tr>
+               <td>password</td><td colspan="2"><input type="password" name="password" id="password"/></td>
+               <td><div id="divpsw" class="userdiv"></div></td>
+           </tr>
+           <tr>
+               <td>sex </td>
+               <td><input type="radio" name="sex" value="男" checked>男</td>
+               <td><input type="radio" name="sex" value="女">女</td>
+               <td><div id="divsex"></div></td>
+           </tr>
+           <tr>
+               <td>email</td><td colspan="2"><input type="text" name="email" id="email"></td>
+               <td><div id="divemail" class="userdiv"></div></td>
+           </tr>
+           <tr align="center">
+               <td colspan="3"><input type="button" value="注册" id="button1"></td>
+           </tr>
+       </table>
+   </form>
+   <script type="text/javascript">
+            window.onload=function (){
+                formelt=document.getElementById("form1");
+                userok=false;
+                passwordok=false;
+                emailok=false;
+                userelt=document.getElementById("username");
+                userelt.onblur=function(){
+                    divname= document.getElementById("divname")
+                    var reg=/[a-zA-Z0-9#+_-]{8,30}/g
+                   var ok= reg.test(userelt.value.trim())
+                    if(ok)
+                        userok=true;
+                    else {
+                        userok = false;
+                        divname.innerHTML='用户名不合法'
+                    }
+                }
+                userelt.onfocus=function (){
+                    if(userok==false)
+                        userelt.value='';
+                    divname.innerHTML='';
+                }
+                paswelt=document.getElementById("password");
+                paswelt.onblur=function () {
+                  divpsw=  document.getElementById('divpsw')
+                    var reg = /[a-zA-Z0-9#$!+_-]{8,30}/g
+                    var ok = reg.test(paswelt.value)
+                    if (ok)
+                        passwordok = true;
+                    else {
+                        passwordok = false;
+                        divpsw.innerHTML='密码不合法,至少8位'
+                    }
+                }
+                paswelt.onfocus=function (){
+                    if(passwordok==false)
+                        this.value=''
+                    divpsw.innerHTML='';
+                }
+                emailelt=document.getElementById("email");
+                //emailelt.oninput=function (){
+                //    emailelt.value=emailelt.value.replace(/[^(\d|.)]/g,'')
+                //  }
+                emailelt.onblur=function (){
+                    divemail=document.getElementById('divemail');
+                    var reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g
+                    var ok=reg.test(emailelt.value)
+                    if(ok)
+                        emailok = true;
+                    else {
+                        emailok=false;
+                        divemail.innerHTML='邮箱不合法'
+
+                    }
+                }
+                emailelt.onfocus=function (){
+                    if(emailok==false)
+                        emailelt.value=''
+                    divemail.innerHTML=''
+
+                }
+                buttonelt1=document.getElementById("button1");
+                buttonelt1.onclick=function(){
+                    userelt.blur();
+                    paswelt.blur();
+                    if(userok===true&&passwordok===true&&emailok===true)
+                        formelt.submit();
+                    else
+                        alert("请确认注册信息")
+                }
+                document.getElementById("username").onkeyup=function (e){
+                  if(e.keyCode==13)
+                      buttonelt1.click();
+                }
+
+            }
+    </script>
+    <style type="text/css">
+        .userdiv{
+            font-size:12px;
+            color: crimson;
+        }
+    </style>
+</body>
+</html>

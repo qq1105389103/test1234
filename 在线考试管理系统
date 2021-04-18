@@ -1,0 +1,62 @@
+任务:在线考试管理系统 用户信息管理模块
+
+子任务:
+         用户信息注册
+         用户信息查询
+         用户信息删除
+         用户信息更新
+
+
+准备工作:
+         1.用户信息表userinfo.userinf
+         CREATE TABLE Users(
+           userid int primary key auto_increment,
+           username varchar(50),
+           password varchar(50),
+           sex char(1),
+           email varchar(50)
+           )
+
+         2.一个实体类User用于读取数据库中标信息
+
+         3.jdbc工具类
+
+         4.web WEB-INF文件夹下存放 jdbc实现jar包 并将jar包add as library
+
+
+考试管理系统模块
+    子任务:
+            添加试题
+            查询试题
+            删除试题
+            更新试题
+
+    准备工作:
+             1.准备试题信息表  (试题是单选题,有4个选项,一个正确答案)
+              Create table question(
+              question id primary_key auto_increment,
+              title varchar(255),
+              OptionA varchar(255),
+              OptionB varchar(255),
+              OptionC varchar(255),
+              OptionD varchar(255),
+              answer char(1)
+              )
+
+              2.准备表的实体类
+
+
+      3.展示答题情况的翻页功能的实现
+       1.记录总答题概览页面的url   request.getrequesturl+ getQueryString
+       2.将每一题详细概览页面的url 添加到一个list ,url中新增id ,number(题数) ,useranswer(用户选择) correct(正确)
+       3.每一题详细概览页面 添加上一题,下一题标签,for循环从list中取出url (通过url中的"number=lastnumber"...lastnumber=number-1取出上下题的url)
+
+       4.随机出题的实现? 随机查询?
+        order by 后可接字段名或字段列数
+        order by name  order by 1  可以通过随机生成字段数排列
+        mysql 语句中rand()随机生成0,1的小数 order by +rand()时 rand()自动返回一个整数,超过列数会自动调整,不用担心
+        order by rand()
+        //终究只是伪随机而已
+
+        5.加了很多细节难以记忆怎么办
+         用流程图记忆

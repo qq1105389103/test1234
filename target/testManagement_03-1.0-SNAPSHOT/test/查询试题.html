@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background: url('http://localhost:8080/testManagement/IMG_0074.PNG');background-size: 100% ">
+<center>
+    <table>
+        <form action="http://localhost:8080/testManagement/question/findAll" method="get">
+        <tr>
+            <td><input type="text" readonly></td><td><input type="submit" value="查询全部"></td>
+        </tr>
+        </form>
+        <form action="http://localhost:8080/testManagement/question/find" method="post">
+        <tr>
+            <td><input type="text" name="title" id="title"></td><td><input type="submit" value="查询"></td>
+        </tr>
+        </form>
+    </table>
+</center>
+</body>
+</html>

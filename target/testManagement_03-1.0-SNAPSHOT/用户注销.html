@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background: url('http://localhost:8080/testManagement/IMG_0085.JPG');background-size: 100% ">
+<form action="http://localhost:8080/testManagement/User/Server/delete" method="post" id="form1">
+    <table border="2px" align="center">
+         <tr>
+            <td>username</td><td><input type="text" name="username" id="username2"/></td>
+         </tr>
+        <tr>
+            <td>password</td><<td><input type="password" name="password" id="password"></td>
+        </tr>
+        <tr>
+        <td>email</td><td><input type="text" name="email" id="email"/></td>
+        </tr>
+        <tr  align="center">
+            <td colspan="2"><input type="button" value="删除" id="button1"></td>
+        </tr>
+    </table>
+
+</form>
+<script type="text/javascript">
+    window.onload=function(){
+        var buttonelt = document.getElementById("button1")
+        buttonelt.onclick=function (){
+            document.getElementById("form1").submit();
+        }
+        document.getElementById('username2').onkeydown=function (event){
+            if(event.keyCode===13)
+                buttonelt.click();
+        }
+    }
+</script>
+</body>
+</html>

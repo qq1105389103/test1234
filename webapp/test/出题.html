@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <center><font style="color: crimson;font-size: 12px">请选择题数</font>
+    <form action="http://localhost:8080/testManagement/question/offer" method="get">
+        <input type="text" name="limit" id="limit">
+        <input type="submit" value="出题">
+    </form>
+    </center>
+<script type="text/javascript">
+    document.getElementById("limit").oninput=function (){
+        reg=/[^0-9]+/g
+        this.value=this.value.replace(reg,"")
+    }
+</script>
+</body>
+</html>

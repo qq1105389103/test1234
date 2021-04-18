@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background: url('http://localhost:8080/testManagement/IMG_0085.JPG');background-size: 100% ">
+       <div align="center">
+       <form action="http://localhost:8080/testManagement/User/Server/findAll" method="get" id="form1" >
+           <input type="text" name="username" id="username1" />
+           <input type="button" value="查询全部" id="button1">
+       </form>
+       <form action="http://localhost:8080/testManagement/User/Server/find" method="get" id="form2" >
+            <input type="text" name="username" id="username2" />
+            <input type="button" value="查询" id="button2">
+       </form>
+       </div>
+<script type="text/javascript">
+    window.onload=function(){
+        var buttonelt = document.getElementById("button1")
+        buttonelt.onclick=function (){
+            document.getElementById("form1").submit();
+        }
+        var userelt=document.getElementById("username1").onkeydown=function (event){
+            if(event.keyCode==13)
+                buttonelt.click();
+        }
+        var buttonelt2 = document.getElementById("button2")
+        buttonelt2.onclick=function (){
+            document.getElementById("form2").submit();
+        }
+        var userelt2=document.getElementById("username2").onkeydown=function (event){
+            if(event.keyCode==13)
+                buttonelt2.click();
+        }
+    }
+</script>
+</body>
+</html>

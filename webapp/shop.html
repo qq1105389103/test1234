@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background: url('http://localhost:8080/testManagement/IMG_0085.JPG');background-size: 100% ">
+<!--商品页面,用于将商品加入购物车-->
+  <center>
+     <table border="2px">
+         <tr>
+             <td>商品名</td><td>简介</td><td>价格</td>
+         </tr>
+         <tr>
+             <td id="goodsname1">神州笔记本</td><td>2070+10400</td><td id="price1">6299</td><td><input type="button" value="加入购物车" class="button" name="button1"></td>
+         </tr>
+         <tr>
+             <td id="goodsname2">手游充值卡</td><td>6480货币</td><td id="price2">648</td><td><input type="button" value="加入购物车" class="button" name="button2"></td>
+         </tr>
+         <tr>
+             <td id="goodsname3">Switch</td><td>长续航</td><td id="price3">2499</td><td><input type="button" value="加入购物车" class="button" name="button3"></td>
+         </tr>
+     </table>
+  </center>
+  <script type="text/javascript">
+         window.onload=function (){
+            var buttons= document.getElementsByClassName("button")
+             for(i=0;i<buttons.length;i++){
+                 buttons[i].onclick=function (){
+                     var number=this.name.substr(6,1)
+                     document.location.href="/testManagement/shop_add?goodsname="+document.getElementById("goodsname"+number).innerText
+                     +"&price="+document.getElementById("price"+number).innerText
+
+                 }
+             }
+         }
+  </script>
+</body>
+</html>
