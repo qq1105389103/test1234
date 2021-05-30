@@ -11,7 +11,7 @@ public class login_out extends HttpServlet {
         Cookie[]cards=request.getCookies(); //读取该网站下所有cookie
         for(int i=0;i<cards.length;i++)
         {
-            cards[i].setMaxAge(1);
+            cards[i].setMaxAge(0);
             response.addCookie(cards[i]);
         }
 
